@@ -17,7 +17,7 @@ namespace CleanTeeth.Tests.Domain.ValueObjects
         {
             new Email(null!);
 
-            //this is the mstest4 new syntax, we are using version 3
+            //this is the mstest4 new syntax, we are using version 3 lkfnslfk
             //var ex = Assert.ThrowsExactly<BusinessRuleException>(() => new Email(null!));
             //Assert.AreEqual($"The Email is required", ex);
         }
