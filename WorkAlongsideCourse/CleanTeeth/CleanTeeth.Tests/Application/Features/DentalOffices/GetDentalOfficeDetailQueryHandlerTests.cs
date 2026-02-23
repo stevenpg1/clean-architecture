@@ -40,8 +40,8 @@ namespace CleanTeeth.Tests.Application.Features.DentalOffices
 
             //Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(result.Id, id);
-            Assert.AreEqual(result.Name, result.Name);
+            Assert.AreEqual(id, result.Id);
+            Assert.AreEqual(dentalOffice.Name, result.Name);
         }
 
         [TestMethod]

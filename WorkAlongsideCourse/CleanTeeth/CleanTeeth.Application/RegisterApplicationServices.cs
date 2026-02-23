@@ -1,4 +1,5 @@
 ﻿using CleanTeeth.Application.Features.DentalOffices.Commands.CreateDentalOffice;
+using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentailOfficesList;
 using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficeDetail;
 using CleanTeeth.Application.Utilities;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ namespace CleanTeeth.Application
             services.AddTransient<IMediator, SimpleMediator>();
             services.AddScoped<IRequestHandler<CreateDentalOfficeCommand, Guid>, CreateDentalOfficeCommandHandler>();
             services.AddScoped<IRequestHandler<GetDentalOfficeDetailQuery, DentalOfficeDetailDTO>, GetDentalOfficeDetailQueryHandler>();
+            services.AddScoped<IRequestHandler<GetDentalOfficesListQuery, DentalOfficesListDTO>, GetDentalOfficesListQueryHandler>();
 
             return services;
         }
