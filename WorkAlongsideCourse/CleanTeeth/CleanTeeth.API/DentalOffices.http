@@ -1,0 +1,20 @@
+@CleanTeeth.API_HostAddress = http://localhost:5204/api/dentaloffices
+
+GET {{CleanTeeth.API_HostAddress}}/019C8B59-5472-79E8-B17C-78C7F3ACBDFA
+ACCEPT: application/json
+
+###
+
+GET {{CleanTeeth.API_HostAddress}}
+ACCEPT: application/json
+
+###
+
+POST {{CleanTeeth.API_HostAddress}}
+Content-Type: application/json
+
+{
+  "name": "Dental Office B"
+}
+
+###
