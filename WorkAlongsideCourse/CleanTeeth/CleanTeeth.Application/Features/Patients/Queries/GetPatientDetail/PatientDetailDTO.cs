@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanTeeth.Application.Features.Patients.Queries.GetPatientsList
+namespace CleanTeeth.Application.Features.Patients.Queries.GetPatientDetail
 {
-    public class GetPatientsListQueryDTO
+    public class PatientDetailDTO
     {
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanTeeth.Application.Features.Dentists.Commands.DeleteDentist
+namespace CleanTeeth.Application.Features.Dentists.Queries.GetDentistsList
 {
-    public class DeleteDentistcommandValidator
+    public class DentistsListDTO
     {
     }
 }

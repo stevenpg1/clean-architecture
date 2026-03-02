@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CleanTeeth.Application.Features.DentalOffices.Commands.CreateDentalOffice;
+using FluentValidation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,11 @@ using System.Threading.Tasks;
 
 namespace CleanTeeth.Application.Features.Patients.Commands.CreatePatient
 {
-    public class CreatePatientCommandValidator
+    public class CreatePatientCommandValidator : AbstractValidator<CreatePatientCommand>
     {
+        public CreatePatientCommandValidator()
+        {
+            
+        }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanTeeth.Application.Features.Patients.Commands.DeletePatient
+namespace CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentDetail
 {
-    public class DeletePatientCommandValidator
+    public class AppointmentDetailDTO
     {
     }
 }

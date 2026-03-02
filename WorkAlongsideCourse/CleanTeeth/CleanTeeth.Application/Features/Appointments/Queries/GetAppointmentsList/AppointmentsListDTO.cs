@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanTeeth.Application.Features.Appointments.Commands.CancelAppointment
+namespace CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentsList
 {
-    public class CancelAppointmentCommandValidator
+    public class AppointmentsListDTO
     {
     }
 }
