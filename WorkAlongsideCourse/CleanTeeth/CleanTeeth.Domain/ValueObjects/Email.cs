@@ -11,6 +11,8 @@ namespace CleanTeeth.Domain.ValueObjects
     {
         public string Value { get; } = null!;
 
+        private Email() { } 
+
         public Email(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
