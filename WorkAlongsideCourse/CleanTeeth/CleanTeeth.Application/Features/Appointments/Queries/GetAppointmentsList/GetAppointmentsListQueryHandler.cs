@@ -1,6 +1,8 @@
 ﻿using CleanTeeth.Application.Contracts.Repositories;
-using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentailOfficesList;
+using CleanTeeth.Application.Features.Apointments.Queries.GetAppointmentsList;
+using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList;
 using CleanTeeth.Application.Utilities;
+using CleanTeeth.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +20,10 @@ namespace CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentsLi
         {
             this.repository = repository;
         }
-        public Task<AppointmentsListDTO> Handle(GetAppointmentsListQuery request)
+        public async Task<AppointmentsListDTO> Handle(GetAppointmentsListQuery request)
         {
-            throw new NotImplementedException();
+            var appointments = await repository.GetAll();
+            return appointments.ToDto();
         }
     }
 }

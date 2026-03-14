@@ -1,4 +1,4 @@
-﻿using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentailOfficesList;
+﻿using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList;
 using CleanTeeth.Application.Utilities;
 using System;
 using System.Collections.Generic;

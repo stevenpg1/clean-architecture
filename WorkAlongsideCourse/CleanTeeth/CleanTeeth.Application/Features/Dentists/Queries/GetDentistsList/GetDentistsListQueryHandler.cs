@@ -1,5 +1,5 @@
 ﻿using CleanTeeth.Application.Contracts.Repositories;
-using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentailOfficesList;
+using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList;
 using CleanTeeth.Application.Utilities;
 using System;
 using System.Collections.Generic;
@@ -18,9 +18,10 @@ namespace CleanTeeth.Application.Features.Dentists.Queries.GetDentistsList
         {
             this.repository = repository;
         }
-        public Task<DentistsListDTO> Handle(GetDentistsListQuery request)
+        public async Task<DentistsListDTO> Handle(GetDentistsListQuery request)
         {
-            throw new NotImplementedException();
+            var dentists = await repository.GetAll();
+            return dentists.ToDto();
         }
     }
 }

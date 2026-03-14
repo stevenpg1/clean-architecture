@@ -1,0 +1,38 @@
+@CleanTeeth.API_HostAddress = http://localhost:5204/api/patients
+
+GET {{CleanTeeth.API_HostAddress}}/019C8B59-5472-79E8-B17C-78C7F3ACBDFA
+ACCEPT: application/json
+
+###
+
+GET {{CleanTeeth.API_HostAddress}}
+ACCEPT: application/json
+
+###
+GET {{CleanTeeth.API_HostAddress}}??page=1&recordsPerPage=1
+ACCEPT: application/json
+
+###
+
+POST {{CleanTeeth.API_HostAddress}}
+Content-Type: application/json
+
+{
+  "name": "Patient Smith",
+  "email": "patient.smith@gmail.com"
+}
+
+###
+
+PUT {{CleanTeeth.API_HostAddress}}/019C8B59-5472-79E8-B17C-78C7F3ACBDFA
+Content-Type: application/json
+
+{
+  "name": "Dental Office A"
+}
+
+###
+
+DELETE {{CleanTeeth.API_HostAddress}}/019ca3eb-cbf6-7f5b-ac46-86f9dc8eb86b
+Content-Type: application/json
+

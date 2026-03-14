@@ -1,12 +1,8 @@
 ﻿using CleanTeeth.Application.Contracts.Persistence;
 using CleanTeeth.Application.Contracts.Repositories;
-using CleanTeeth.Application.Features.Appointments.Commands.CreateAppointment;
 using CleanTeeth.Application.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CleanTeeth.Domain.Entities;
+using CleanTeeth.Domain.ValueObjects;
 
 namespace CleanTeeth.Application.Features.Patients.Commands.CreatePatient
 {
@@ -23,9 +19,22 @@ namespace CleanTeeth.Application.Features.Patients.Commands.CreatePatient
             this.unitOfWork = unitOfWork;
         }
 
-        public Task<Guid> Handle(CreatePatientCommand request)
+        public async Task<Guid> Handle(CreatePatientCommand request)
         {
-            throw new NotImplementedException();
+            var email = new Email(request.Email);
+            var patient = new Patient(request.Name, email);
+
+            try
+            {
+                var result = await repository.Add(patient);
+                await unitOfWork.Commit();
+                return result.Id;
+            }
+            catch(Exception ex)
+            {
+                await unitOfWork.Rollback();
+                throw;
+            }
         }
     }
 }

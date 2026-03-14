@@ -21,6 +21,8 @@ namespace CleanTeeth.Domain.Entities
         public Dentist? Dentist { get; private set; }
         public DentalOffice? DentalOffice { get; private set; }
 
+        private Appointment() { }
+
         public Appointment(Guid patientId, Guid dentistId, Guid dentalOfficeId, TimeInterval timeInterval)
         {
             //this is ok here because time intervals generally can start in the past just not for appointments - ie specific to this entity's needs

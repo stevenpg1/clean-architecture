@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanTeeth.Application.Features.DentalOffices.Queries.GetDentailOfficesList
+namespace CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList
 {
     public class GetDentalOfficesListQueryHandler : IRequestHandler<GetDentalOfficesListQuery, DentalOfficesListDTO>
     {

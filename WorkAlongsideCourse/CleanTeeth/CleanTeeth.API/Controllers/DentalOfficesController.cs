@@ -2,7 +2,7 @@
 using CleanTeeth.Application.Features.DentalOffices.Commands.CreateDentalOffice;
 using CleanTeeth.Application.Features.DentalOffices.Commands.DeleteDentalOffice;
 using CleanTeeth.Application.Features.DentalOffices.Commands.UpdateDaentalOffice;
-using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentailOfficesList;
+using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList;
 using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficeDetail;
 using CleanTeeth.Application.Utilities;
 using Microsoft.AspNetCore.Mvc;

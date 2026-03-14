@@ -39,6 +39,11 @@ namespace CleanTeeth.Persistence.Repositories
             return await context.Set<T>().FindAsync(id);
         }
 
+        public async Task<int> GetRecordCount()
+        {
+            return await context.Set<T>().CountAsync();
+        }
+
         public Task Update(T entity)
         {
             context.Update(entity);

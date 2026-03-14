@@ -13,7 +13,7 @@ namespace CleanTeeth.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Appointment> builder)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

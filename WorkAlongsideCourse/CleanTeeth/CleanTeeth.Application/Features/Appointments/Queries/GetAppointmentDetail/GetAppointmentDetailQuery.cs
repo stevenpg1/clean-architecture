@@ -10,5 +10,6 @@ namespace CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentDet
 {
     public class GetAppointmentDetailQuery : IRequest<AppointmentDetailDTO>
     {
+        public required Guid Id { get; set; }
     }
 }

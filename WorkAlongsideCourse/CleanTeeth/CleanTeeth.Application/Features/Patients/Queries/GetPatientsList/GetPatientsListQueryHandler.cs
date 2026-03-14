@@ -1,6 +1,9 @@
 ﻿using CleanTeeth.Application.Contracts.Repositories;
-using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentailOfficesList;
+using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList;
+using CleanTeeth.Application.Features.Patients.Queries.GetPatientDetail;
 using CleanTeeth.Application.Utilities;
+using CleanTeeth.Application.Utilities.Common;
+using CleanTeeth.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CleanTeeth.Application.Features.Patients.Queries.GetPatientsList
 {
-    public class GetPatientsListQueryHandler : IRequestHandler<GetPatientsListQuery, PatientsListDTO>
+    public class GetPatientsListQueryHandler : IRequestHandler<GetPatientsListQuery, PaginatedDTO<PatientDetailDTO>>
     {
         private readonly IPatientRepository repository;
 
@@ -18,9 +21,11 @@ namespace CleanTeeth.Application.Features.Patients.Queries.GetPatientsList
         {
             this.repository = repository;
         }
-        public Task<PatientsListDTO> Handle(GetPatientsListQuery request)
+        public async Task<PaginatedDTO<PatientDetailDTO>> Handle(GetPatientsListQuery request)
         {
-            throw new NotImplementedException();
-        }
+			var patients = await repository.GetFiltered(request);
+            var recordCount = await repository.GetRecordCount();
+            return patients.ToDto(recordCount);
+		}
     }
 }

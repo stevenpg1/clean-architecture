@@ -1,6 +1,6 @@
 ﻿using CleanTeeth.Application.Contracts.Repositories;
 using CleanTeeth.Application.Exceptions;
-using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentailOfficesList;
+using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList;
 using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficeDetail;
 using CleanTeeth.Domain.Entities;
 using NSubstitute;

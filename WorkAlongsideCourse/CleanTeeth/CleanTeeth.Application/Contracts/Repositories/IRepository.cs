@@ -16,5 +16,6 @@ namespace CleanTeeth.Application.Contracts.Repositories
         Task Update(T entity);
 
         Task Delete(T entity);
+        Task<int> GetRecordCount();
     }
 }

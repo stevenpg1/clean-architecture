@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CleanTeeth.Application.Features.Dentists.Queries.GetDentistDetail;
+
 
 namespace CleanTeeth.Application.Features.Dentists.Queries.GetDentistsList
 {
     public class DentistsListDTO
     {
+        public List<DentistDetailDTO> Dentists { get; set; }
     }
 }

@@ -22,6 +22,8 @@ namespace CleanTeeth.Persistence
 
             services.AddScoped<IDentalOfficeRepository, DentalOfficeRepository>();
             services.AddScoped<IPatientRepository, PatientRepository>();
+            services.AddScoped<IDentistRepository, DentistRepository>();
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
             services.AddScoped<IUnitOfWork, UnitOFWorkEFCore>();
 
             return services;
