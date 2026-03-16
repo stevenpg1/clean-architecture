@@ -1,5 +1,6 @@
 ﻿using CleanTeeth.Application.Contracts.Persistence;
 using CleanTeeth.Application.Contracts.Repositories;
+using CleanTeeth.Application.Exceptions;
 using CleanTeeth.Application.Utilities;
 using System;
 using System.Collections.Generic;
@@ -21,9 +22,26 @@ namespace CleanTeeth.Application.Features.Patients.Commands.DeletePatient
             this.repository = repository;
             this.unitOfWork = unitOfWork;
         }
-        public Task Handle(DeletePatientCommand request)
+        public async Task Handle(DeletePatientCommand request)
         {
-            throw new NotImplementedException();
+            var patient = await repository.GetById(request.Id);
+
+            if (patient == null)
+            {
+                throw new NotFoundException();
+            }
+
+            try
+            {
+                await repository.Delete(patient);
+                await unitOfWork.Commit();
+
+            }
+            catch (Exception ex)
+            {
+                await unitOfWork.Rollback();
+                throw;
+            }
         }
     }
 }

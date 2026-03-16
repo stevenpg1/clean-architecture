@@ -11,7 +11,9 @@ namespace CleanTeeth.Application.Features.Patients.Commands.UpdatePatient
     {
         public UpdatePatientCommandValidator()
         {
-
+            RuleFor(p => p.Name).NotEmpty().WithMessage("the field {PropertyName} required.");
+            RuleFor(p => p.Email).NotEmpty().WithMessage("the field {PropertyName} required.")
+                .EmailAddress().WithMessage("Invalid email format");
         }
     }
 }

@@ -23,8 +23,19 @@ namespace CleanTeeth.Persistence.Repositories
 
         public async Task<IEnumerable<Patient>> GetFiltered(PatientsFilterDTO filter)
         {
-            return await context
-                        .Patients
+            var queryable = context.Patients.AsQueryable();
+
+            if(!string.IsNullOrWhiteSpace(filter.Name))
+            {
+                queryable = queryable.Where(x => x.Name.Contains(filter.Name));
+            }
+
+            if (!string.IsNullOrWhiteSpace(filter.Email))
+            {
+                queryable = queryable.Where(x => x.Email.Value.Contains(filter.Email));
+            }
+
+            return await queryable
                         .OrderBy(x => x.Name)
                         .Paginate(filter.Page, filter.RecordsPerPage)
                         .ToListAsync();

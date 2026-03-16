@@ -13,6 +13,8 @@ namespace CleanTeeth.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Patient> builder)
         {
+            builder.HasKey(p => p.Id);
+
             builder.Property(prop => prop.Name)
                 .HasMaxLength(250)
                 .IsRequired();

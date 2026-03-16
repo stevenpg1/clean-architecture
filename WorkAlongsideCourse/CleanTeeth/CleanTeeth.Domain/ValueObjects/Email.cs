@@ -1,12 +1,14 @@
 ﻿using CleanTeeth.Domain.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CleanTeeth.Domain.ValueObjects
 {
+    [ComplexType]
     public record Email
     {
         public string Value { get; } = null!;
