@@ -1,4 +1,5 @@
 ﻿using CleanTeeth.Application.Contracts.Repositories;
+using CleanTeeth.Application.Exceptions;
 using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficeDetail;
 using CleanTeeth.Application.Utilities;
 using System;
@@ -19,9 +20,14 @@ namespace CleanTeeth.Application.Features.Dentists.Queries.GetDentistDetail
             this.repository = repository;
         }
 
-        public Task<DentistDetailDTO> Handle(GetDentistDetailQuery request)
+        public async Task<DentistDetailDTO> Handle(GetDentistDetailQuery request)
         {
-            throw new NotImplementedException();
+            var dentist = await repository.GetById(request.Id);
+            if (dentist is null)
+            {
+                throw new NotFoundException();
+            }
+            return dentist.ToDto();
         }
     }
 }

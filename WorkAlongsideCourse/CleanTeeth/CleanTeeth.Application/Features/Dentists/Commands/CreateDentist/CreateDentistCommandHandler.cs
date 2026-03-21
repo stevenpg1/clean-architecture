@@ -1,6 +1,8 @@
 ﻿using CleanTeeth.Application.Contracts.Persistence;
 using CleanTeeth.Application.Contracts.Repositories;
 using CleanTeeth.Application.Utilities;
+using CleanTeeth.Domain.Entities;
+using CleanTeeth.Domain.ValueObjects;
 
 namespace CleanTeeth.Application.Features.Dentists.Commands.CreateDentist
 {
@@ -17,9 +19,22 @@ namespace CleanTeeth.Application.Features.Dentists.Commands.CreateDentist
             this.unitOfWork = unitOfWork;
         }
 
-        public Task<Guid> Handle(CreateDentistCommand request)
+        public async Task<Guid> Handle(CreateDentistCommand request)
         {
-            throw new NotImplementedException();
+            var email = new Email(request.Email);
+            var dentist = new Dentist(request.Name, email);
+
+            try
+            {
+                var result = await repository.Add(dentist);
+                await unitOfWork.Commit();
+                return result.Id;
+            }
+            catch (Exception ex)
+            {
+                await unitOfWork.Rollback();
+                throw;
+            }
         }
     }
 }

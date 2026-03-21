@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CleanTeeth.API.Controllers
+namespace CleanTeeth.API.DTOs.DentalOffices
 {
     public class UpdateDentalOfficeDTO
     {

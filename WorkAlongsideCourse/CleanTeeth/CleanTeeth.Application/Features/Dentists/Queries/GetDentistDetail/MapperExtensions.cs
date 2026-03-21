@@ -14,9 +14,9 @@ namespace CleanTeeth.Application.Features.Dentists.Queries.GetDentistDetail
         {
             return new DentistDetailDTO
             {
-                //Id = dentist.Id,
-                //Name = dentist.Name,
-                //Email = dentist.Email.Value
+                Id = dentist.Id,
+                Name = dentist.Name,
+                Email = dentist.Email.Value
             };
         }
     }

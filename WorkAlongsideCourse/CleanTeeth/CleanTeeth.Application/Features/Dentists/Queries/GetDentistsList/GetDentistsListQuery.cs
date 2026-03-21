@@ -1,5 +1,6 @@
-﻿using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList;
+﻿using CleanTeeth.Application.Features.Dentists.Queries.GetDentistDetail;
 using CleanTeeth.Application.Utilities;
+using CleanTeeth.Application.Utilities.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CleanTeeth.Application.Features.Dentists.Queries.GetDentistsList
 {
-    public class GetDentistsListQuery : IRequest<DentistsListDTO>
+    public class GetDentistsListQuery : DentistsFilterDTO, IRequest<PaginatedDTO<DentistDetailDTO>>
     {
     }
 }

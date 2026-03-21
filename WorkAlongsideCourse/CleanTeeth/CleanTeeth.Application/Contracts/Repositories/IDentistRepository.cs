@@ -1,4 +1,5 @@
-﻿using CleanTeeth.Domain.Entities;
+﻿using CleanTeeth.Application.Features.Dentists.Queries.GetDentistsList;
+using CleanTeeth.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace CleanTeeth.Application.Contracts.Repositories
 {
     public interface IDentistRepository : IRepository<Dentist>
     {
+        Task<IEnumerable<Dentist>> GetFiltered(DentistsFilterDTO filter);
     }
 }

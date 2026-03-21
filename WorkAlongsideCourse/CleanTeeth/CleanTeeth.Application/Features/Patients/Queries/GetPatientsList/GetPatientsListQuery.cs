@@ -1,5 +1,4 @@
-﻿using CleanTeeth.Application.Features.DentalOffices.Queries.GetDentalOfficesList;
-using CleanTeeth.Application.Features.Patients.Queries.GetPatientDetail;
+﻿using CleanTeeth.Application.Features.Patients.Queries.GetPatientDetail;
 using CleanTeeth.Application.Utilities;
 using CleanTeeth.Application.Utilities.Common;
 using System;

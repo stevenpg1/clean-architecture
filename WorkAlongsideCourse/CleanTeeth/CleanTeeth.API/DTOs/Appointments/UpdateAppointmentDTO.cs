@@ -1,4 +1,4 @@
-﻿namespace CleanTeeth.API.Controllers
+﻿namespace CleanTeeth.API.DTOs.Appointments
 {
     public class UpdateAppointmentDTO
     {

@@ -1,9 +1,13 @@
 ﻿using CleanTeeth.API.DTOs.Dentists;
+using CleanTeeth.API.DTOs.Patients;
+using CleanTeeth.API.Utilities;
 using CleanTeeth.Application.Features.Dentists.Commands.CreateDentist;
 using CleanTeeth.Application.Features.Dentists.Commands.DeleteDentist;
 using CleanTeeth.Application.Features.Dentists.Commands.UpdateDentist;
 using CleanTeeth.Application.Features.Dentists.Queries.GetDentistDetail;
 using CleanTeeth.Application.Features.Dentists.Queries.GetDentistsList;
+using CleanTeeth.Application.Features.Patients.Queries.GetPatientDetail;
+using CleanTeeth.Application.Features.Patients.Queries.GetPatientsList;
 using CleanTeeth.Application.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,18 +33,18 @@ namespace CleanTeeth.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<DentistsListDTO>> Get()
+        public async Task<ActionResult<List<DentistDetailDTO>>> Get([FromQuery] GetDentistsListQuery query)
         {
-            var query = new GetDentistsListQuery { };
             var result = await mediator.Send(query);
-            return result;
+            HttpContext.InsertPaginationInformationHeader(result.RecordCount);
+            return result.Elements;
         }
 
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateDentistDTO createDentistDTO)
         {
-            var command = new CreateDentistCommand(); // { Name = createDentistDTO.Name };
+            var command = new CreateDentistCommand { Name = createDentistDTO.Name, Email = createDentistDTO.Email };
             await mediator.Send(command);
             return Ok();
         }
@@ -48,7 +52,7 @@ namespace CleanTeeth.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(Guid id, [FromBody] UpdateDentistDTO updateDentistDTO)
         {
-            var command = new UpdateDentistCommand { Id = id }; //, Name = updateDentistDTO.Name
+            var command = new UpdateDentistCommand { Id = id, Name = updateDentistDTO.Name, Email = updateDentistDTO.Email };
             await mediator.Send(command);
             return NoContent();
         }

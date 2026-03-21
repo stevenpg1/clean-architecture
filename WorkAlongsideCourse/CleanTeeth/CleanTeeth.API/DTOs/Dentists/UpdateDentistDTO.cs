@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CleanTeeth.API.Controllers
+namespace CleanTeeth.API.DTOs.Dentists
 {
-    public class UpdatePatientDTO
+    public class UpdateDentistDTO
     {
         [Required]
         [StringLength(250)]

@@ -13,7 +13,15 @@ namespace CleanTeeth.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Dentist> builder)
         {
-            //throw new NotImplementedException();
+            builder.HasKey(p => p.Id);
+
+            builder.Property(prop => prop.Name)
+                .HasMaxLength(250)
+                .IsRequired();
+
+            builder.ComplexProperty(prop => prop.Email, action => {
+                action.Property(e => e.Value).HasColumnName("Email").HasMaxLength(254);
+            });
         }
     }
 }
