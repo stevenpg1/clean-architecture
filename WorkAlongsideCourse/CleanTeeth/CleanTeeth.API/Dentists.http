@@ -18,8 +18,8 @@ POST {{CleanTeeth.API_HostAddress}}
 Content-Type: application/json
 
 {
-  "name": "Patient Smith",
-  "email": "patient.smith@gmail.com"
+  "name": "Dentist Smith",
+  "email": "dentist.smith@gmail.com"
 }
 
 ###

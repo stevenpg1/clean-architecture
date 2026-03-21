@@ -10,10 +10,15 @@ namespace CleanTeeth.Application.Features.Apointments.Queries.GetAppointmentsLis
         {
             return new AppointmentsListDTO
             {
-                Appointments = appointments.Select(d => new AppointmentDetailDTO
+                Appointments = appointments.Select(a => new AppointmentDetailDTO
                 {
-                    //Id = d.Id,
-                    //Name = d.Name
+                    Id = a.Id,
+                    StartDate = a.TimeInterval.Start,
+                    EndDate = a.TimeInterval.End,
+                    DentalOffice = a.DentalOffice!.Name,
+                    Dentist = a.Dentist!.Name,
+                    Patient = a.Patient!.Name,
+                    Status = a.Status.ToString()
                 }).ToList()
             };
         }

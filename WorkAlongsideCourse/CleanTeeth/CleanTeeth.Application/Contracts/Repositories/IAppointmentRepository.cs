@@ -1,4 +1,5 @@
-﻿using CleanTeeth.Domain.Entities;
+﻿using CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentsList;
+using CleanTeeth.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,9 @@ namespace CleanTeeth.Application.Contracts.Repositories
 {
     public interface IAppointmentRepository : IRepository<Appointment>
     {
+        Task<bool> OverlapExists(Guid dentistId, DateTime start, DateTime end);
+        new Task<Appointment?> GetById(Guid id); // the new overrides the default one define in IRepository
+
+        Task<IEnumerable<Appointment>> GetFiltered(AppointmentsFilterDto filter);
     }
 }

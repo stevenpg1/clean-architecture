@@ -12,7 +12,7 @@ namespace CleanTeeth.Application.Features.Appointments.Commands.CreateAppointmen
     {
         public CreateAppointmentCommandValidator()
         {
-            
+            RuleFor(x => x.StartDate).GreaterThan(x => x.EndDate).WithMessage("Start date must be before end date");
         }
     }
 }

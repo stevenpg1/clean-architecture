@@ -29,9 +29,8 @@ namespace CleanTeeth.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<AppointmentsListDTO>> Get()
+        public async Task<ActionResult<AppointmentsListDTO>> Get([FromQuery] GetAppointmentsListQuery query)
         {
-            var query = new GetAppointmentsListQuery { };
             var result = await mediator.Send(query);
             return result;
         }
@@ -40,7 +39,14 @@ namespace CleanTeeth.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateAppointmentDTO createAppointmentDTO)
         {
-            var command = new CreateAppointmentCommand(); // { Name = createAppointmentDTO.Name };
+            var command = new CreateAppointmentCommand
+            { 
+                PatientId = createAppointmentDTO.PatientId,
+                DentistId = createAppointmentDTO.DentistId,
+                DentalOfficeId = createAppointmentDTO.DentalOfficeId,
+                StartDate = createAppointmentDTO.StartDate,
+                EndDate = createAppointmentDTO.EndDate
+            };
             await mediator.Send(command);
             return Ok();
         }

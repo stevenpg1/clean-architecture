@@ -22,7 +22,7 @@ namespace CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentsLi
         }
         public async Task<AppointmentsListDTO> Handle(GetAppointmentsListQuery request)
         {
-            var appointments = await repository.GetAll();
+            var appointments = await repository.GetFiltered(request);
             return appointments.ToDto();
         }
     }

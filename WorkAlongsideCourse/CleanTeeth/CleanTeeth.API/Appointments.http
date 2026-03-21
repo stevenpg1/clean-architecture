@@ -1,0 +1,37 @@
+@CleanTeeth.API_HostAddress = http://localhost:5204/api/appointments
+
+GET {{CleanTeeth.API_HostAddress}}/019D101B-A8ED-7A37-B5E0-871592BBD34B
+ACCEPT: application/json
+
+###
+
+GET {{CleanTeeth.API_HostAddress}}?startDate=2026-04-01T09:30:00&endDate=2026-04-01T10:30:00&patientId=019D0FF8-EEA2-7B8F-BFC9-6D952E096E7C&dentistId=019D0FF9-80B4-7D39-9EEA-4FD44AB6F6B6&dentalOfficeId=019C8BAF-D2C9-7B94-86FD-00FCC6F9D35B
+ACCEPT: application/json
+
+###
+
+POST {{CleanTeeth.API_HostAddress}}
+Content-Type: application/json
+
+{
+  "patientId": "019D0FF8-EEA2-7B8F-BFC9-6D952E096E7C",
+  "dentistId": "019D0FF9-80B4-7D39-9EEA-4FD44AB6F6B6",
+  "dentalOfficeId": "019C8BAF-D2C9-7B94-86FD-00FCC6F9D35B",
+  "startDate": "2026-04-01T09:30:00",
+  "endDate": "2026-04-01T10:30:00"
+}
+
+###
+
+PUT {{CleanTeeth.API_HostAddress}}/019C8B59-5472-79E8-B17C-78C7F3ACBDFA
+Content-Type: application/json
+
+{
+  "name": "Dental Office A"
+}
+
+###
+
+DELETE {{CleanTeeth.API_HostAddress}}/019ca3eb-cbf6-7f5b-ac46-86f9dc8eb86b
+Content-Type: application/json
+

@@ -13,7 +13,13 @@ namespace CleanTeeth.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Appointment> builder)
         {
-            //throw new NotImplementedException();
+            builder.HasKey(p => p.Id);
+
+            builder.ComplexProperty(prop => prop.TimeInterval, action =>
+            {
+                action.Property(equals => equals.Start).HasColumnName("StartDate");
+                action.Property(equals => equals.End).HasColumnName("EndDate");
+            });
         }
     }
 }

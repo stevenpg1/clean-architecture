@@ -9,6 +9,11 @@ namespace CleanTeeth.Application.Exceptions
 {
     public class CustomValidationException : Exception
     {
+        public CustomValidationException(string errorMessage)
+        {
+            ValidationErrors.Add(errorMessage);
+        }
+
         public CustomValidationException(ValidationResult validationResult)
         {
             foreach (var validationError in validationResult.Errors)

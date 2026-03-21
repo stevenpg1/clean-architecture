@@ -1,4 +1,6 @@
 ﻿using CleanTeeth.Application.Contracts.Repositories;
+using CleanTeeth.Application.Exceptions;
+using CleanTeeth.Application.Features.Apointments.Queries.GetAppointmentDetail;
 using CleanTeeth.Application.Utilities;
 using System;
 using System.Collections.Generic;
@@ -18,9 +20,16 @@ namespace CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentDet
             this.repository = repository;
         }
 
-        public Task<AppointmentDetailDTO> Handle(GetAppointmentDetailQuery request)
+        public async Task<AppointmentDetailDTO> Handle(GetAppointmentDetailQuery request)
         {
-            throw new NotImplementedException();
+            var appointment = await repository.GetById(request.Id);
+
+            if (appointment == null)
+            {
+                throw new NotFoundException();
+            }
+
+            return appointment.ToDto();
         }
     }
 }

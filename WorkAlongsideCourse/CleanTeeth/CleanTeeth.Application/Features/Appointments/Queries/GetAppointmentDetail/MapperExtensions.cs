@@ -9,7 +9,13 @@ namespace CleanTeeth.Application.Features.Apointments.Queries.GetAppointmentDeta
         {
             return new AppointmentDetailDTO
             {
-                
+                Id = appointment.Id,
+                StartDate = appointment.TimeInterval.Start,
+                EndDate = appointment.TimeInterval.End,
+                DentalOffice = appointment.DentalOffice!.Name,
+                Dentist = appointment.Dentist!.Name,
+                Patient = appointment.Patient!.Name,
+                Status = appointment.Status.ToString()
             };
         }
     }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CleanTeeth.Application.Features.Appointments.Queries.GetAppointmentsList
 {
-    public class GetAppointmentsListQuery : IRequest<AppointmentsListDTO>
+    public class GetAppointmentsListQuery : AppointmentsFilterDto, IRequest<AppointmentsListDTO>
     {
     }
 }

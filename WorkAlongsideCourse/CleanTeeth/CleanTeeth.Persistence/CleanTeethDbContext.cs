@@ -29,5 +29,7 @@ namespace CleanTeeth.Persistence
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Dentist> Dentists { get; set; }
 
+        public DbSet<Appointment> Appointments { get; set; }
+
     }
 }
